@@ -79,3 +79,29 @@ Matrix Matrix::transpose() const {
 
     return result; // Kopya kurucu (copy constructor) sayesinde güvenle döner
 }
+
+// * Operatörü: Ýki matrisi çarpar ve yeni bir matris döndürür
+Matrix Matrix::operator*(const Matrix& other) const {
+    // Çarpým kuralý: 1. matrisin sütun sayýsý, 2. matrisin satýr sayýsýna eþit olmalýdýr
+    if (this->cols != other.rows) {
+        std::cerr << "Hata: Carpma islemi icin boyutlar uyumsuz!" << std::endl;
+        return Matrix(0, 0);
+    }
+
+    // Sonuç matrisi: 1. matrisin satýr sayýsý x 2. matrisin sütun sayýsý boyutunda olur
+    Matrix result(this->rows, other.cols);
+
+    // Satýr ve sütunlarý çarparak toplama iþlemi (Dot Product)
+    for (int i = 0; i < this->rows; ++i) {
+        for (int j = 0; j < other.cols; ++j) {
+            double sum = 0.0;
+            // Kesiþim noktasýndaki elemanlarý bulmak için k döngüsü
+            for (int k = 0; k < this->cols; ++k) {
+                sum += this->data[i][k] * other.data[k][j];
+            }
+            result.data[i][j] = sum;
+        }
+    }
+
+    return result;
+}

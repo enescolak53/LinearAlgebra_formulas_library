@@ -25,4 +25,7 @@ public:
 
         // Matrisin transpozunu (devriðini) almak için fonksiyon
         Matrix transpose() const;
+
+        // Ýki matrisi çarpmak için * operatörünü aþýrý yüklüyoruz
+        Matrix operator*(const Matrix& other) const;
 };

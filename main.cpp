@@ -2,23 +2,30 @@
 #include "Matrix.h"
 
 int main() {
-    std::cout << "--- Transpoz Modulu Testi ---" << std::endl;
+    std::cout << "--- Matris Carpimi Testi ---" << std::endl;
 
-    // 2 satır, 3 sütunluk (2x3) asimetrik bir matris oluşturalım
+    // A matrisi: 2 satır, 3 sütun (2x3)
     Matrix A(2, 3);
-
-    // Değerleri atayalım
     A(0, 0) = 1.0; A(0, 1) = 2.0; A(0, 2) = 3.0;
     A(1, 0) = 4.0; A(1, 1) = 5.0; A(1, 2) = 6.0;
 
-    std::cout << "\nOrijinal A Matrisi (2x3):" << std::endl;
+    // B matrisi: 3 satır, 2 sütun (3x2)
+    Matrix B(3, 2);
+    B(0, 0) = 7.0;  B(0, 1) = 8.0;
+    B(1, 0) = 9.0;  B(1, 1) = 10.0;
+    B(2, 0) = 11.0; B(2, 1) = 12.0;
+
+    std::cout << "\nA Matrisi (2x3):" << std::endl;
     A.display();
 
-    // Transpozunu alalım
-    Matrix A_T = A.transpose();
+    std::cout << "\nB Matrisi (3x2):" << std::endl;
+    B.display();
 
-    std::cout << "\nA Matrisinin Transpozu (3x2):" << std::endl;
-    A_T.display();
+    // Çarpma işlemini başlat (Beklenen sonuç: 2x2 matris)
+    Matrix C = A * B;
+
+    std::cout << "\nC Matrisi (A * B Sonucu - 2x2):" << std::endl;
+    C.display();
 
     return 0;
 }
