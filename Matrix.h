@@ -7,6 +7,9 @@ private:
     int cols;
     double** data;
 
+    //  Sadece sýnýf içinden çaðrýlacak yardýmcý minör fonksiyonu
+    Matrix getMinor(int excludeRow, int excludeCol) const;
+
 public:
     // Kurucu Fonksiyon
     Matrix(int r, int c);
@@ -28,4 +31,20 @@ public:
 
         // Ýki matrisi çarpmak için * operatörünü aþýrý yüklüyoruz
         Matrix operator*(const Matrix& other) const;
+
+
+        // YENÝ EKLENEN: Determinant hesaplama fonksiyonu
+        double determinant() const;
+
+        // Skaler carpim (Matrisi bir sayi ile carpmak)
+        Matrix operator*(double scalar) const;
+
+        // Birim Matris uretici (Statik fonksiyon: Nesne olusturmadan cagrilabilir)
+        static Matrix identity(int size);
+
+        // Kofaktor Matrisi (Ters matris icin yardimci)
+        Matrix cofactor() const;
+
+        // Ters Matris (Inverse)
+        Matrix inverse() const;
 };
