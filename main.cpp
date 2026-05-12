@@ -4,8 +4,9 @@
 int main() {
    
     /*
-    std::cout << "MathSolver Engine Baslatiliyor..." << std::endl;
-    std::cout << "---------------------------------" << std::endl;
+  std::cout << "=====================================" << std::endl;
+    std::cout << "  LINEAR ALGEBRA LIBRARY  " << std::endl;
+    std::cout << "=====================================\n" << std::endl;
 
     // 3 satır, 3 sütunluk bir A matrisi oluştur (Kurucu fonksiyon tetiklenir)
     Matrix A(3, 3);

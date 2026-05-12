@@ -13,18 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="LinearAlgebra">
+      <UniqueIdentifier>{fb1bd7c1-9928-4a71-bd2b-f1daba9fd0a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
-      <Filter>Kaynak Dosyalar</Filter>
+      <Filter>LinearAlgebra</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
-      <Filter>Üst Bilgi Dosyaları</Filter>
+      <Filter>LinearAlgebra</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
