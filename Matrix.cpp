@@ -1,6 +1,6 @@
 #include "Matrix.h"
 
-// Normal Kurucu: Bellek ayırır ve 0 ile doldurur
+// Normal Kurucu: Bellek ayÃ½rÃ½r ve 0 ile doldurur
 Matrix::Matrix(int r, int c) {
     rows = r;
     cols = c;
@@ -13,7 +13,7 @@ Matrix::Matrix(int r, int c) {
     }
 }
 
-// Yıkıcı: Belleği serbest bırakır
+// YÃ½kÃ½cÃ½: BelleÃ°i serbest bÃ½rakÃ½r
 Matrix::~Matrix() {
     for (int i = 0; i < rows; ++i) {
         delete[] data[i];
@@ -21,17 +21,17 @@ Matrix::~Matrix() {
     delete[] data;
 }
 
-// Kopya Kurucu: Bir matris kopyalanırken (return veya Matrix B = A gibi) yeni bellek açar
+// Kopya Kurucu: Bir matris kopyalanÃ½rken (return veya Matrix B = A gibi) yeni bellek aÃ§ar
 Matrix::Matrix(const Matrix& other) {
     rows = other.rows;
     cols = other.cols;
 
-    // Yeni nesne için ayrı bir bellek adresi oluşturuyoruz
+    // Yeni nesne iÃ§in ayrÃ½ bir bellek adresi oluÃ¾turuyoruz
     data = new double* [rows];
     for (int i = 0; i < rows; ++i) {
         data[i] = new double[cols];
         for (int j = 0; j < cols; ++j) {
-            data[i][j] = other.data[i][j]; // Değerleri tek tek kopyala
+            data[i][j] = other.data[i][j]; // DeÃ°erleri tek tek kopyala
         }
     }
 }
@@ -62,40 +62,40 @@ Matrix Matrix::operator+(const Matrix& other) const {
         }
     }
 
-    return result; // Burada Kopya Kurucu devreye girer ve çökme engellenir
+    return result; // Burada Kopya Kurucu devreye girer ve Ã§Ã¶kme engellenir
 }
-// Transpoz Fonksiyonu: Satırları sütun, sütunları satır yapar
+// Transpoz Fonksiyonu: SatÃ½rlarÃ½ sÃ¼tun, sÃ¼tunlarÃ½ satÃ½r yapar
 Matrix Matrix::transpose() const {
-    // ÖNEMLİ: Yeni matrisin satır sayısı eskinin sütun sayısına, 
-    // sütun sayısı ise eskinin satır sayısına eşit olacak.
+    // Ã–NEMLÃ: Yeni matrisin satÃ½r sayÃ½sÃ½ eskinin sÃ¼tun sayÃ½sÃ½na, 
+    // sÃ¼tun sayÃ½sÃ½ ise eskinin satÃ½r sayÃ½sÃ½na eÃ¾it olacak.
     Matrix result(cols, rows);
 
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            // Eskinin [i][j] elemanı, yeninin [j][i] elemanı olur
+            // Eskinin [i][j] elemanÃ½, yeninin [j][i] elemanÃ½ olur
             result.data[j][i] = this->data[i][j];
         }
     }
 
-    return result; // Kopya kurucu (copy constructor) sayesinde güvenle döner
+    return result; // Kopya kurucu (copy constructor) sayesinde gÃ¼venle dÃ¶ner
 }
 
-// * Operatörü: İki matrisi çarpar ve yeni bir matris döndürür
+// * OperatÃ¶rÃ¼: Ãki matrisi Ã§arpar ve yeni bir matris dÃ¶ndÃ¼rÃ¼r
 Matrix Matrix::operator*(const Matrix& other) const {
-    // Çarpım kuralı: 1. matrisin sütun sayısı, 2. matrisin satır sayısına eşit olmalıdır
+    // Ã‡arpÃ½m kuralÃ½: 1. matrisin sÃ¼tun sayÃ½sÃ½, 2. matrisin satÃ½r sayÃ½sÃ½na eÃ¾it olmalÃ½dÃ½r
     if (this->cols != other.rows) {
         std::cerr << "Hata: Carpma islemi icin boyutlar uyumsuz!" << std::endl;
         return Matrix(0, 0);
     }
 
-    // Sonuç matrisi: 1. matrisin satır sayısı x 2. matrisin sütun sayısı boyutunda olur
+    // SonuÃ§ matrisi: 1. matrisin satÃ½r sayÃ½sÃ½ x 2. matrisin sÃ¼tun sayÃ½sÃ½ boyutunda olur
     Matrix result(this->rows, other.cols);
 
-    // Satır ve sütunları çarparak toplama işlemi (Dot Product)
+    // SatÃ½r ve sÃ¼tunlarÃ½ Ã§arparak toplama iÃ¾lemi (Dot Product)
     for (int i = 0; i < this->rows; ++i) {
         for (int j = 0; j < other.cols; ++j) {
             double sum = 0.0;
-            // Kesişim noktasındaki elemanları bulmak için k döngüsü
+            // KesiÃ¾im noktasÃ½ndaki elemanlarÃ½ bulmak iÃ§in k dÃ¶ngÃ¼sÃ¼
             for (int k = 0; k < this->cols; ++k) {
                 sum += this->data[i][k] * other.data[k][j];
             }
@@ -106,17 +106,17 @@ Matrix Matrix::operator*(const Matrix& other) const {
     return result;
 }
 
-// Minör Matris Bulma: Belirtilen satır ve sütunu silerek yeni bir alt matris oluşturur
+// MinÃ¶r Matris Bulma: Belirtilen satÃ½r ve sÃ¼tunu silerek yeni bir alt matris oluÃ¾turur
 Matrix Matrix::getMinor(int excludeRow, int excludeCol) const {
-    Matrix minorMat(rows - 1, cols - 1); // Yeni matris 1 boyut küçük olacak
+    Matrix minorMat(rows - 1, cols - 1); // Yeni matris 1 boyut kÃ¼Ã§Ã¼k olacak
     int minorRow = 0, minorCol;
 
     for (int i = 0; i < rows; ++i) {
-        if (i == excludeRow) continue; // İstenen satırı atla
+        if (i == excludeRow) continue; // Ãstenen satÃ½rÃ½ atla
 
         minorCol = 0;
         for (int j = 0; j < cols; ++j) {
-            if (j == excludeCol) continue; // İstenen sütunu atla
+            if (j == excludeCol) continue; // Ãstenen sÃ¼tunu atla
 
             minorMat.data[minorRow][minorCol] = this->data[i][j];
             minorCol++;
@@ -126,9 +126,9 @@ Matrix Matrix::getMinor(int excludeRow, int excludeCol) const {
     return minorMat;
 }
 
-// Determinant Hesaplama (Laplace Açılımı ile Özyineli/Recursive Algoritma)
+// Determinant Hesaplama (Laplace AÃ§Ã½lÃ½mÃ½ ile Ã–zyineli/Recursive Algoritma)
 double Matrix::determinant() const {
-    // Kural 1: Sadece kare matrislerin determinantı hesaplanabilir
+    // Kural 1: Sadece kare matrislerin determinantÃ½ hesaplanabilir
     if (rows != cols) {
         std::cerr << "Hata: Determinant sadece kare matrisler icin hesaplanabilir!" << std::endl;
         return 0.0;
@@ -139,25 +139,25 @@ double Matrix::determinant() const {
         return data[0][0];
     }
 
-    // Temel Durum 2: 2x2 Matris formülü (ad - bc)
+    // Temel Durum 2: 2x2 Matris formÃ¼lÃ¼ (ad - bc)
     if (rows == 2) {
         return (data[0][0] * data[1][1]) - (data[0][1] * data[1][0]);
     }
 
-    // Genel Durum: 3x3 ve daha büyük matrisler için (Özyineli - Recursive adım)
+    // Genel Durum: 3x3 ve daha bÃ¼yÃ¼k matrisler iÃ§in (Ã–zyineli - Recursive adÃ½m)
     double det = 0.0;
-    int sign = 1; // İşaret değiştirici (+, -, +, - ...)
+    int sign = 1; // ÃÃ¾aret deÃ°iÃ¾tirici (+, -, +, - ...)
 
-    // İlk satıra (0. satır) göre açılım yapıyoruz
+    // Ãlk satÃ½ra (0. satÃ½r) gÃ¶re aÃ§Ã½lÃ½m yapÃ½yoruz
     for (int j = 0; j < cols; ++j) {
-        // İlgili elemanın minör matrisini al
+        // Ãlgili elemanÃ½n minÃ¶r matrisini al
         Matrix minorMat = getMinor(0, j);
 
-        // İşaret * Eleman * Minörün Determinantı
-        // DİKKAT: Burada fonksiyon kendi kendini (determinant) çağırıyor!
+        // ÃÃ¾aret * Eleman * MinÃ¶rÃ¼n DeterminantÃ½
+        // DÃKKAT: Burada fonksiyon kendi kendini (determinant) Ã§aÃ°Ã½rÃ½yor!
         det += sign * data[0][j] * minorMat.determinant();
 
-        sign = -sign; // Her adımda işareti tersine çevir (+ ise - yap, - ise + yap)
+        sign = -sign; // Her adÃ½mda iÃ¾areti tersine Ã§evir (+ ise - yap, - ise + yap)
     }
 
     return det;
