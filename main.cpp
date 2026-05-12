@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include "Matrix.h"
 
 int main() {
@@ -8,12 +8,12 @@ int main() {
     std::cout << "  LINEAR ALGEBRA LIBRARY  " << std::endl;
     std::cout << "=====================================\n" << std::endl;
 
-    // 3 satýr, 3 sütunluk bir A matrisi oluþtur (Kurucu fonksiyon tetiklenir)
+    // 3 satÃ½r, 3 sÃ¼tunluk bir A matrisi oluÃ¾tur (Kurucu fonksiyon tetiklenir)
     Matrix A(3, 3);
 
     std::cout << "Olusturulan A Matrisi (Baslangic degerleri):" << std::endl;
 
-    // Matrisi ekrana yazdýr
+    // Matrisi ekrana yazdÃ½r
     A.display();
     */
 
@@ -29,15 +29,15 @@ int main() {
     /*
     std::cout << "--- Lineer Cebir Modulu Testi ---" << std::endl;
 
-    // 2x2 boyutunda iki matris oluþtur
+    // 2x2 boyutunda iki matris oluÃ¾tur
     Matrix A(2, 2);
     Matrix B(2, 2);
 
-    // A matrisine deðerler atayalým
+    // A matrisine deÃ°erler atayalÃ½m
     A(0, 0) = 1.5;  A(0, 1) = 2.0;
     A(1, 0) = 3.2;  A(1, 1) = 4.1;
 
-    // B matrisine deðerler atayalým
+    // B matrisine deÃ°erler atayalÃ½m
     B(0, 0) = 0.5;  B(0, 1) = 1.0;
     B(1, 0) = 2.8;  B(1, 1) = 0.9;
 
@@ -47,7 +47,7 @@ int main() {
     std::cout << "\nB Matrisi:" << std::endl;
     B.display();
 
-    // Ýþte C++ OOP'nin gücü: Ýki nesneyi doðrudan + operatörü ile topluyoruz!
+    // ÃÃ¾te C++ OOP'nin gÃ¼cÃ¼: Ãki nesneyi doÃ°rudan + operatÃ¶rÃ¼ ile topluyoruz!
     Matrix C = A + B;
 
     std::cout << "\nC Matrisi (A + B Sonucu):" << std::endl;
@@ -67,17 +67,17 @@ int main() {
     /*
     std::cout << "--- Transpoz Modulu Testi ---" << std::endl;
 
-    // 2 satýr, 3 sütunluk (2x3) asimetrik bir matris oluþturalým
+    // 2 satÃ½r, 3 sÃ¼tunluk (2x3) asimetrik bir matris oluÃ¾turalÃ½m
     Matrix A(2, 3);
 
-    // Deðerleri atayalým
+    // DeÃ°erleri atayalÃ½m
     A(0, 0) = 1.0; A(0, 1) = 2.0; A(0, 2) = 3.0;
     A(1, 0) = 4.0; A(1, 1) = 5.0; A(1, 2) = 6.0;
 
     std::cout << "\nOrijinal A Matrisi (2x3):" << std::endl;
     A.display();
 
-    // Transpozunu alalým
+    // Transpozunu alalÃ½m
     Matrix A_T = A.transpose();
 
     std::cout << "\nA Matrisinin Transpozu (3x2):" << std::endl;
@@ -97,12 +97,12 @@ int main() {
 
    /* std::cout << "--- Matris Carpimi Testi ---" << std::endl;
 
-    // A matrisi: 2 satýr, 3 sütun (2x3)
+    // A matrisi: 2 satÃ½r, 3 sÃ¼tun (2x3)
     Matrix A(2, 3);
     A(0, 0) = 1.0; A(0, 1) = 2.0; A(0, 2) = 3.0;
     A(1, 0) = 4.0; A(1, 1) = 5.0; A(1, 2) = 6.0;
 
-    // B matrisi: 3 satýr, 2 sütun (3x2)
+    // B matrisi: 3 satÃ½r, 2 sÃ¼tun (3x2)
     Matrix B(3, 2);
     B(0, 0) = 7.0;  B(0, 1) = 8.0;
     B(1, 0) = 9.0;  B(1, 1) = 10.0;
@@ -114,7 +114,7 @@ int main() {
     std::cout << "\nB Matrisi (3x2):" << std::endl;
     B.display();
 
-    // Çarpma iþlemini baþlat (Beklenen sonuç: 2x2 matris)
+    // Ã‡arpma iÃ¾lemini baÃ¾lat (Beklenen sonuÃ§: 2x2 matris)
     Matrix C = A * B;
 
     std::cout << "\nC Matrisi (A * B Sonucu - 2x2):" << std::endl;
@@ -135,7 +135,7 @@ int main() {
 /*
    std::cout << "--- Determinant Hesaplama Testi ---" << std::endl;
 
-    // 3x3 boyutunda bir kare matris oluþturalým
+    // 3x3 boyutunda bir kare matris oluÃ¾turalÃ½m
     Matrix A(3, 3);
 
     A(0, 0) = 6.0; A(0, 1) = 1.0; A(0, 2) = 1.0;
@@ -145,11 +145,11 @@ int main() {
     std::cout << "\nA Matrisi (3x3):" << std::endl;
     A.display();
 
-    // Determinantý hesapla
+    // DeterminantÃ½ hesapla
     double det = A.determinant();
 
     std::cout << "\nA Matrisinin Determinanti: " << det << std::endl;
-    // Beklenen kesin sonuç: -306 olmalýdýr. */
+    // Beklenen kesin sonuÃ§: -306 olmalÃ½dÃ½r. */
 
 
 
