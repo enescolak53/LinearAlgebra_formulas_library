@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include <iostream>
 
 class Matrix {
@@ -7,17 +7,17 @@ private:
     int cols;
     double** data;
 
-    //  Sadece sınıf içinden çağrılacak yardımcı minör fonksiyonu
+    //  Sadece sÃ½nÃ½f iÃ§inden Ã§aÃ°rÃ½lacak yardÃ½mcÃ½ minÃ¶r fonksiyonu
     Matrix getMinor(int excludeRow, int excludeCol) const;
 
 public:
     // Kurucu Fonksiyon
     Matrix(int r, int c);
 
-    // Yıkıcı Fonksiyon (Bellek temizliği)
+    // YÃ½kÃ½cÃ½ Fonksiyon (Bellek temizliÃ°i)
     ~Matrix();
 
-    // Kopya Kurucu (Deep Copy için kritik nokta)
+    // Kopya Kurucu (Deep Copy iÃ§in kritik nokta)
     Matrix(const Matrix& other);
 
     // Fonksiyonlar
@@ -26,14 +26,14 @@ public:
     Matrix operator+(const Matrix& other) const;
 
 
-        // Matrisin transpozunu (devriğini) almak için fonksiyon
+        // Matrisin transpozunu (devriÃ°ini) almak iÃ§in fonksiyon
         Matrix transpose() const;
 
-        // İki matrisi çarpmak için * operatörünü aşırı yüklüyoruz
+        // Ãki matrisi Ã§arpmak iÃ§in * operatÃ¶rÃ¼nÃ¼ aÃ¾Ã½rÃ½ yÃ¼klÃ¼yoruz
         Matrix operator*(const Matrix& other) const;
 
 
-        // YENİ EKLENEN: Determinant hesaplama fonksiyonu
+        // YENÃ EKLENEN: Determinant hesaplama fonksiyonu
         double determinant() const;
 
         // Skaler carpim (Matrisi bir sayi ile carpmak)
